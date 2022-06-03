@@ -3,8 +3,9 @@
 ## TOC
 
 1. [All About DevOps](#all-about-devops)
+1. [Git and GitHub](#git-and-github)
 
-### All About DevOps
+## All About DevOps
 
 DevOps culture is implemented in several phases with the help of several tools
 
@@ -36,7 +37,7 @@ Ops
 ![devops life cycle](/images/DevOps-Tools-DevOps-Tutorial-Edureka-1.png)
 [ref](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/06/DevOps-Tools-DevOps-Tutorial-Edureka-1.png)
 
-#### Waterfall Model
+### Waterfall Model
 
 - Waterfall model is a traditional approach of software development
 - In waterfall model, development happens in a step-by-step manner
@@ -67,7 +68,7 @@ Using the waterfall model, companies soon came to realize:
 1. it is very expensive to make changes during the end of the project
 1. software must be delivered faster and with less resources
 
-#### Agile Model
+### Agile Model
 
 Following the Agile model, programmers create prototypes to understand client requirements
 
@@ -93,7 +94,7 @@ Disadvantages:
 - developers and operations team work in silos
   - when the product fails in production servers, the operations team are clueless and send product back to the development team
 
-#### What is DevOps?
+### What is DevOps?
 
 - DevOps is an evolution from Agile model of software development
 - Addresses the gap between the development team and the operations team
@@ -101,7 +102,7 @@ Disadvantages:
 1. development team will submit the application to the operations team for Implementation
 1. operations team will monitor the application and provide relevant feedback to developers
 
-#### DevOps Phases
+### DevOps Phases
 
 According to DevOps practices, the workflow in software development and delivery is divided into 8 phases
 
@@ -125,12 +126,12 @@ According to DevOps practices, the workflow in software development and delivery
 1. Monitor
    1. monitoring allows IT organization to identify specific issues of specific releases and understand the impact on end-users
 
-#### DevOps Tools
+### DevOps Tools
 
 ![devops tools](/images/devops-tools.png)
 [ref](https://dzone.com/articles/how-to-orchestrate-devops-tools-together-to-solve)
 
-#### DevOps Process
+### DevOps Process
 
 Continuous Delivery
 
@@ -150,7 +151,7 @@ end
 id6-- success -->id7
 ```
 
-#### DevOps Advantages
+### DevOps Advantages
 
 Companies which follow DevOps, release more products and features within a short amount of time
 
@@ -158,3 +159,16 @@ Companies which follow DevOps, release more products and features within a short
 - Complexity of maintaining an application is reduced
 - Improved collaboration between developers and operations team
 - Continuous integration and delivery ensure faster time to market
+
+## Git and GitHub
+
+### Version Control System (VCS)
+
+Allows all files to be stored in a single repository (repo) and also allows for easy collaboration on those files.
+
+- all files in System A are stored as Version 1 in the remote repository
+- some one wants to make changes to those files in the repo, they check them out, make the changes and then push them back onto the remote repo, thus updating the version history to Version 2
+
+VCS allows you to store multiple versions of a system file in the remote repo
+
+### Distributed Version Control System

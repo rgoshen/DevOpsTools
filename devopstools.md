@@ -162,7 +162,9 @@ Companies which follow DevOps, release more products and features within a short
 
 ## Git and GitHub
 
-### Version Control System (VCS)
+### Git and GitHub
+
+#### Version Control System (VCS)
 
 Allows all files to be stored in a single repository (repo) and also allows for easy collaboration on those files.
 
@@ -171,4 +173,85 @@ Allows all files to be stored in a single repository (repo) and also allows for 
 
 VCS allows you to store multiple versions of a system file in the remote repo
 
-### Distributed Version Control System
+#### Distributed Version Control System
+
+Ability for the code to be shared across a team of developers
+
+- All the developers have the entire copy of code on their local system
+- Distributed VCS moves from client-server approach of Central VCS to peer-to-peer approach
+
+Git tool is an example of Distributed VCS
+
+![distributed version control](/images/version-control-fig3.png)
+
+[ref](https://homes.cs.washington.edu/~mernst/advice/version-control.html)
+
+#### What is Git?
+
+Git is a distributed version control tool used for source code management
+
+- used to track the changes in the source code
+- allows multiple developers to work together
+- supports non-linear development because of thousands of parallel branches
+- has the ability to handle large projects efficiently
+
+GitHub is the server
+
+![gitHub](/images/Git%20And%20Github%20Version%20Control06.png)
+
+[ref](https://www.c-sharpcorner.com/article/git-and-github-version-control-local-and-remote-repository/)
+
+#### Git vs GitHub
+
+|                        git                         |                   github                   |
+| :------------------------------------------------: | :----------------------------------------: |
+|                   software tool                    |                  service                   |
+|                 installed locally                  |             hosted on the web              |
+|   manages different versions of the source code    | houses a copy of the local repository code |
+| provides a command line to interact with the files |     provides a gui to store the files      |
+
+![gitvsgithub](/images/gitvsgithub.png)
+
+[ref](https://i.stack.imgur.com/jwCeV.png)
+
+#### Git Architecture
+
+- Local
+  - Working Directory
+    - folder where you are currently working
+  - `git add` to staging area
+    - you add your files to the staging area before making a commit
+  - `git commit` to local repository
+    - after making all the changes, you commit those files to the local repository
+- Remote
+  - `git push` to remote repository
+    - you can push the committed files to the remote repository
+  - `git pull` from remote repository
+    - fetches all the changes from a remote repository to a local repository
+- Local
+  - `git checkout` from local repository
+    - you can create new branches and switch to them as and when required
+  - `git merge`
+    - after you are done with the changes, you can merge the new branches to the master branch
+
+```mermaid
+sequenceDiagram
+   participant WD as Working Directory
+   participant SA as Staging Area
+   participant LR as Local Repository
+   participant RR as Remote Repository
+
+   Note right of WD: you add files to the staging area before a commit
+   Note right of SA: after making all the changes, you commit those files to the local repository
+   Note right of LR: you can push the committed files to the remote repository
+   Note over RR, LR: fetches all the changes from a remote repository to a local repository
+   Note over LR, WD: you can create new branches and switch to them as and when required
+   Note over LR, WD: after you are done with the changes, you can merge the new branches to the master branch
+
+   WD->>SA:git add
+   SA->>LR:git commit
+   LR->>RR:git push
+   RR->>LR:git pull
+   LR->>WD:git checkout
+   LR->>WD:git merge
+```

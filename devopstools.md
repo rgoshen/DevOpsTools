@@ -4,6 +4,7 @@
 
 1. [All About DevOps](#all-about-devops)
 1. [Git and GitHub](#git-and-github)
+1. []()
 
 ## All About DevOps
 
@@ -255,3 +256,57 @@ sequenceDiagram
    LR->>WD:git checkout
    LR->>WD:git merge
 ```
+
+#### Git Concepts
+
+1. [Fork and Clone](#fork-and-clone)
+1. [Adding Collaborators](#collaborators)
+1. [Branch in Git](#git-branch)
+1. [Pull from a remote](#pull-from-a-remote)
+1. [Git Rebase](#git-rebase)
+
+#### Fork and Clone
+
+Git allows you to fork an open source repository. When you fork a repository, you create a copy of it on your GitHub account.
+
+#### Collaborators
+
+GitHub allows you to work with users from all over the world at any given time.
+
+- Collaborators are GitHub users who are given permission to edit a repository owned by someone else
+
+#### Git Branch
+
+You can create a new branch and build a new feature on that branch
+
+- be default, you always work on the main branch
+
+#### Pull from a remote
+
+You can pull in any changes that have been made from your forked remote repository to the local repository
+
+#### Git Rebase
+
+Git rebase is the process of of combining a sequence of commits to a new base commit
+
+- the primary reason for rebasing is to maintain a linear project history
+- when you rebase, you "unplug" a branch and "replug" it on the tip of another branch (usually main)
+- the goal of rebasing is to take all the commits from a feature branch and put it on the main branch
+
+#### Popular Git Commands
+
+1. `git init`: initialize a local git repository
+1. `git add`/`git add .`: add one or more files to a staging area
+1. `git commit -m "some commit message"`: commit changes to head but not to the remote repository
+1. `git status`: check the status of your current repository and list the files you have changed
+1. `git log`: provides a list of all commits made on your branch
+1. `git diff`: view the changes you have made to the file
+1. `git push origin <branch name>`: push the branch to the remote repository so other can use it
+1. `git config --global user.name "User Name"`: tell git who you are by configuring the author name
+1. `git config --global user.email "email@example.com"`: tell git who you are by configuring the author email id
+1. `git clone`: create a git repository copy from a remote source
+1. `git remote add origin <server>`: connect your local repository to the remote server and add the server to be able to push to it
+1. `git branch <branch name>`: create a new branch
+1. `git checkout <branch name>`: switch from one branch to another branch
+1. `git merge <branch name>`: merge a branch into the active branch
+1. `git rebase`: reapply commits on top of another base tip

@@ -161,6 +161,8 @@ Companies which follow DevOps, release more products and features within a short
 - Improved collaboration between developers and operations team
 - Continuous integration and delivery ensure faster time to market
 
+[back](#toc)
+
 ## Git and GitHub
 
 ### Git and GitHub
@@ -310,3 +312,64 @@ Git rebase is the process of of combining a sequence of commits to a new base co
 1. `git checkout <branch name>`: switch from one branch to another branch
 1. `git merge <branch name>`: merge a branch into the active branch
 1. `git rebase`: reapply commits on top of another base tip
+
+[back](#toc)
+
+## All About Jenkins
+
+### Before Jenkins
+
+- Developers had to wait till the entire software code was built and tested to check for errors
+- Developers had to check the entire source code to find the errors, in such case, fixing bugs was very difficult
+- There was no iterative improvement of code and software delivery process was slow
+
+### What is Jenkins
+
+- a Continuous Integration tool that allows continuous development, test and deployment of newly created code
+
+### What is Continuous Integration
+
+- developer writes and submits code to a repository
+- repository sends the code to a Continuous Integration (CI) server
+- CI server runs tests against the code and if fails, then sends it back to the developer to fix
+  - This allows the developer to do two things:
+    - to not break the build
+    - to not run all the tests locally on their machine
+  - If pass, goes on to the tester to run more tests than the standard tests the CI server runs
+    - if the tester catches errors, then they can send directly back to developer
+- Release and deploy
+
+### Continuous Integration Tools
+
+- Bamboo
+  - can run multiple builds in parallel for faster compilation
+  - it has built in functionality to connect with repositories and has build tasks for Ant, Maven, etc.
+- Buildbot
+  - an open-source framework for automating software build, test, and release processes
+  - it is written in Python and supports distributed, parallel execution of jobs across multiple platforms
+- Apache Gump
+  - designed with the aim to build and test all the open source Java projects, every night
+  - it makes sure that all the projects are compatible at both API level and functionality level
+- Travis CI
+  - is a hosted, distributed continuous integration service used to build and test software projects hosted at GitHub
+  - it's build for projects and team of all sizes and supports over 20 different languages
+- Jenkins
+  - is an open-source automation server written in Java
+  - used to automate software development process via continuous integration facilitates continuous delivery
+
+### Features of Jenkins
+
+1. Easy installation
+   - self contained Java-based program, ready to run woth packages for Windows, Mac OS X, and Unix-like OS
+1. Easy configuration
+   - it can easily set up and configured via it's web interface which includes error checks and built-in help
+1. Plugins
+   - it has hundreds of plugins in the Update Center and integrates with every tool in the CI and CD toolchain
+1. Extensible
+   - can be extended via its plugin architecture and provides nearly infinite possibilities for what it can do
+1. Distributed
+   - it can easily distribute work across multiple machines, helping in faster builds, tests, and deployments across multiple platforms
+
+### Jenkins Pipeline (10:49)
+
+[back](#toc)

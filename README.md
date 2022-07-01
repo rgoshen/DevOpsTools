@@ -3,8 +3,10 @@
 ## TOC
 
 1. [All About DevOps](#all-about-devops)
-1. [Git and GitHub](#git-and-github)
-1. []()
+2. [Git and GitHub](#git-and-github)
+3. [Git Commands]()
+4. [All About Jenkins](#all-about-jenkins)
+5.
 
 ## All About DevOps
 
@@ -78,6 +80,24 @@ Following the Agile model, programmers create prototypes to understand client re
 1. client provides feedback and list of changes to be made
 
 The entire process of building a software is broken down into small actionable blocks called sprints (usually approximately 2 weeks long)
+
+Agile Ceremony
+
+```mermaid
+flowchart LR
+   pb(Product backlog) --> sp(Sprint planning) --> sb(Sprint backlog)
+   subgraph sprint
+      p(Plan)
+      c(Code)
+      t(Test)
+      r(Review)
+   end
+   sb --> sprint
+   sprint --> ds(Daily scrum)
+   ds --> sprint
+   sprint --> dp(Deleivery Product) --> pr(Product review)
+   sprint --> sprint
+```
 
 - Plan
 - Code
@@ -259,7 +279,7 @@ sequenceDiagram
    LR->>WD:git merge
 ```
 
-#### Git Concepts
+### Git Concepts
 
 1. [Fork and Clone](#fork-and-clone)
 1. [Adding Collaborators](#collaborators)

@@ -112,16 +112,35 @@ Advantages:
 Disadvantages:
 
 - product gets tested only on developer computers and not on production systems
-- developers and operations team work in silos
+- developers and operations team work in separate silos
   - when the product fails in production servers, the operations team are clueless and send product back to the development team
+
+Agile Model
+
+```mermaid
+   flowchart LR
+      d[developer] --product-->o[operations]--product-- --X-->ps[Product server]
+```
 
 ### What is DevOps?
 
 - DevOps is an evolution from Agile model of software development
-- Addresses the gap between the development team and the operations team
+
+```mermaid
+flowchart LR
+cr([Client + Requirements]) <--Agile-->dt([Developement + Testing])<--X-->oi([Operations + Infrastructure])
+```
+
+- Agile addressed the gap between the development team and the operations team
 
 1. development team will submit the application to the operations team for Implementation
-1. operations team will monitor the application and provide relevant feedback to developers
+2. operations team will monitor the application and provide relevant feedback to developers
+
+```mermaid
+flowchart LR
+cr([Client + Requirements]) <--Agile-->dt([Developement + Testing])--Application-->oi([Operations + Infrastructure])
+oi--Feedback-->dt
+```
 
 ### DevOps Phases
 

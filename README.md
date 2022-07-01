@@ -4,9 +4,8 @@
 
 1. [All About DevOps](#all-about-devops)
 2. [Git and GitHub](#git-and-github)
-3. [Git Commands](#git-commands)
-4. [All About Jenkins](#all-about-jenkins)
-5.
+3. [All About Jenkins](#all-about-jenkins)
+4.
 
 ## All About DevOps
 
@@ -415,10 +414,6 @@ Resulting history is linear with no divergent branches
 - :red_circle: `git checkout <branch name>`: switch from one branch to another branch
 - :red_circle: `git merge <branch name>`: merge a branch into the active branch
 - :red_circle: `git rebase`: reapply commits on top of another base tip
-
-[back](#toc)
-
-## Git Commands
 
 [back](#toc)
 

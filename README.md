@@ -4,7 +4,7 @@
 
 1. [All About DevOps](#all-about-devops)
 2. [Git and GitHub](#git-and-github)
-3. [Git Commands]()
+3. [Git Commands](#git-commands)
 4. [All About Jenkins](#all-about-jenkins)
 5.
 
@@ -204,9 +204,7 @@ Companies which follow DevOps, release more products and features within a short
 
 ## Git and GitHub
 
-### Git and GitHub
-
-#### Version Control System (VCS)
+### Version Control System (VCS)
 
 Allows all files to be stored in a single repository (repo) and also allows for easy collaboration on those files.
 
@@ -215,7 +213,7 @@ Allows all files to be stored in a single repository (repo) and also allows for 
 
 VCS allows you to store multiple versions of a system file in the remote repo
 
-#### Distributed Version Control System
+### Distributed Version Control System
 
 Ability for the code to be shared across a team of developers
 
@@ -228,7 +226,7 @@ Git tool is an example of Distributed VCS
 
 [ref](https://homes.cs.washington.edu/~mernst/advice/version-control.html)
 
-#### What is Git?
+### What is Git?
 
 Git is a distributed version control tool used for source code management
 
@@ -243,7 +241,7 @@ GitHub is the server
 
 [ref](https://www.c-sharpcorner.com/article/git-and-github-version-control-local-and-remote-repository/)
 
-#### Git vs GitHub
+### Git vs GitHub
 
 |                        git                         |                   github                   |
 | :------------------------------------------------: | :----------------------------------------: |
@@ -256,7 +254,7 @@ GitHub is the server
 
 [ref](https://i.stack.imgur.com/jwCeV.png)
 
-#### Git Architecture
+### Git Architecture
 
 - Local
   - Working Directory
@@ -310,21 +308,72 @@ sequenceDiagram
 
 Git allows you to fork an open source repository. When you fork a repository, you create a copy of it on your GitHub account.
 
+```mermaid
+flowchart LR
+sr[Someone else's repo]--fork-->yr[Your own repo]--clone-->lr[Local repo]
+```
+
 #### Collaborators
 
 GitHub allows you to work with users from all over the world at any given time.
 
 - Collaborators are GitHub users who are given permission to edit a repository owned by someone else
+  - Access all the files
+  - View the files
+  - Make changes to the files
+  - Commit the files
 
 #### Git Branch
 
 You can create a new branch and build a new feature on that branch
 
-- be default, you always work on the main branch
+- by default, you always work on the main branch
+
+```mermaid
+   gitGraph
+      commit id: "zero"
+      commit id: "one"
+      branch new_feature
+      checkout main
+      commit id: "two"
+      commit id: "three"
+      checkout new_feature
+      commit id: "a"
+      commit id: "b"
+      commit id: "c"
+```
+
+Branch in Git is used to keep your changes until they are ready
+
+**Git Merge**
+
+```mermaid
+%%{init: { 'logLevel': 'debug', 'theme': 'base' } }%%
+   gitGraph
+      commit id: "a"
+      commit id: "b"
+      branch feature
+      commit id: "d"
+      checkout main
+      commit id: "c"
+      checkout feature
+      commit id: "e"
+      commit id: "f"
+      checkout main
+      merge feature
+      commit id: "g"
+
+```
 
 #### Pull from a remote
 
 You can pull in any changes that have been made from your forked remote repository to the local repository
+
+```bash
+$ git pull <remoteName> <branchName>
+```
+
+- if there is no change, it will notify "Already up-to-date". If there is a change, it will merge those changes to your local repository
 
 #### Git Rebase
 
@@ -334,23 +383,42 @@ Git rebase is the process of of combining a sequence of commits to a new base co
 - when you rebase, you "unplug" a branch and "replug" it on the tip of another branch (usually main)
 - the goal of rebasing is to take all the commits from a feature branch and put it on the main branch
 
-#### Popular Git Commands
+```mermaid
+%%{init: { 'logLevel': 'debug', 'theme': 'forest' } }%%
+gitGraph
+   commit id: "a" tag: "main"
+   commit id: "b" tag: "main"
+   commit id: "c" tag: "main"
+   commit id: "d" tag: "feature"
+   commit id: "e" tag: "feature"
+   commit id: "f" tag: "feature"
+```
 
-1. `git init`: initialize a local git repository
-1. `git add`/`git add .`: add one or more files to a staging area
-1. `git commit -m "some commit message"`: commit changes to head but not to the remote repository
-1. `git status`: check the status of your current repository and list the files you have changed
-1. `git log`: provides a list of all commits made on your branch
-1. `git diff`: view the changes you have made to the file
-1. `git push origin <branch name>`: push the branch to the remote repository so other can use it
-1. `git config --global user.name "User Name"`: tell git who you are by configuring the author name
-1. `git config --global user.email "email@example.com"`: tell git who you are by configuring the author email id
-1. `git clone`: create a git repository copy from a remote source
-1. `git remote add origin <server>`: connect your local repository to the remote server and add the server to be able to push to it
-1. `git branch <branch name>`: create a new branch
-1. `git checkout <branch name>`: switch from one branch to another branch
-1. `git merge <branch name>`: merge a branch into the active branch
-1. `git rebase`: reapply commits on top of another base tip
+Resulting history is linear with no divergent branches
+
+- reduces the total storage space needed
+
+### Popular Git Commands
+
+- :red_circle: `git init`: initialize a local git repository
+- :red_circle: `git add`/`git add .`: add one or more files to a staging area
+- :red_circle: `git commit -m "some commit message"`: commit changes to head but not to the remote repository
+- :red_circle: `git status`: check the status of your current repository and list the files you have changed
+- :red_circle: `git log`: provides a list of all commits made on your branch
+- :red_circle: `git diff`: view the changes you have made to the file
+- :red_circle: `git push origin <branch name>`: push the branch to the remote repository so other can use it
+- :red_circle: `git config --global user.name "User Name"`: tell git who you are by configuring the author name
+- :red_circle: `git config --global user.email "email@example.com"`: tell git who you are by configuring the author email id
+- :red_circle: `git clone`: create a git repository copy from a remote source
+- :red_circle: `git remote add origin <server>`: connect your local repository to the remote server and add the server to be able to push to it
+- :red_circle: `git branch <branch name>`: create a new branch
+- :red_circle: `git checkout <branch name>`: switch from one branch to another branch
+- :red_circle: `git merge <branch name>`: merge a branch into the active branch
+- :red_circle: `git rebase`: reapply commits on top of another base tip
+
+[back](#toc)
+
+## Git Commands
 
 [back](#toc)
 

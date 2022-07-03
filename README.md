@@ -429,6 +429,26 @@ Resulting history is linear with no divergent branches
 
 - a Continuous Integration tool that allows continuous development, test and deployment of newly created code
 
+_Nightly build and integration_
+
+- team needs to commit and push all code by some arbitrary time (usually end of the work day)
+
+```mermaid
+flowchart LR
+   c[Commit changes to the soruce code]--all the codes will be pulled only at night-->r[All the changes made to the code are build together]
+```
+
+_Continuos Integration_
+
+- team no longer has an arbitrary time to push code, now they can commit and push whenever it is feasible to do so
+- test and verification services are now built into the environment, so whenever the developer pushes the code to the repo, it can be tested and verified during the push
+
+```mermaid
+flowchart LR
+   c[Commit changes to the source code]--Code is pulled whenever there is a commit made to the source code-->r[All the changes made to the source code is build continuously]
+
+```
+
 ### What is Continuous Integration
 
 - developer writes and submits code to a repository
@@ -439,23 +459,23 @@ Resulting history is linear with no divergent branches
     - to not run all the tests locally on their machine
   - If pass, goes on to the tester to run more tests than the standard tests the CI server runs
     - if the tester catches errors, then they can send directly back to developer
-- Release and deploy
+- **GOAL:** Release and deploy
 
 ### Continuous Integration Tools
 
-- Bamboo
+- **Bamboo**
   - can run multiple builds in parallel for faster compilation
   - it has built in functionality to connect with repositories and has build tasks for Ant, Maven, etc.
-- Buildbot
+- **Buildbot**
   - an open-source framework for automating software build, test, and release processes
   - it is written in Python and supports distributed, parallel execution of jobs across multiple platforms
-- Apache Gump
+- **Apache Gump**
   - designed with the aim to build and test all the open source Java projects, every night
   - it makes sure that all the projects are compatible at both API level and functionality level
-- Travis CI
+- **Travis CI**
   - is a hosted, distributed continuous integration service used to build and test software projects hosted at GitHub
   - it's build for projects and team of all sizes and supports over 20 different languages
-- Jenkins
+- **Jenkins**
   - is an open-source automation server written in Java
   - used to automate software development process via continuous integration facilitates continuous delivery
 
@@ -472,6 +492,60 @@ Resulting history is linear with no divergent branches
 1. Distributed
    - it can easily distribute work across multiple machines, helping in faster builds, tests, and deployments across multiple platforms
 
-### Jenkins Pipeline (10:49)
+### Jenkins Pipeline
+
+![Jenkins Pipeline](images/Jenkins-Pipeline.png)
+[source](https://www.lambdatest.com/blog/jenkins-pipeline-tutorial/)
+
+### Jenkins Architecture
+
+![Jenkins Architecture](images/jenkins-architecture.png)
+
+- Broken up into two sections
+  - Section 1
+    - Developers commit changes to the source code
+  - Section 2
+    - Jenkins server checks the repostitory at regular intervals adn pulls any newly available code
+    - Build Server (such as Maven) builds the code into an executable file
+      - In case the build fails, a feedback is sent to the developers
+    - Test Server (such as Selenium) for testing
+      - if the test fails, feedback is immediately passed on to the developers
+
+> If you have different code files
+>
+> - The files could be very large and may require multiple builds
+> - Singe Jenkins server cannot handle multiple files and builds
+>
+> Need to distribute Jenkins architecture to overcome such issues
+
+### Jenkins Master-Slave Architecture
+
+![Jenkins Master-Slave Architecture](images/jenkins-master-slave.png)
+
+- Jenkins master distributes its workload to all the slaves
+- On request from Jenkins master, the slaves carry out builds and tests and produce test reports
+
+### Jenkins Installation
+
+- Web-Application written in Java can be run/installed in 3 ways:
+
+1. Windows or Linux/Unix services
+2. Generic war file
+3. Instll on any Java based web servers - Apache Tomcat
+
+### Jenkins Prerequisites
+
+- There are some prerequisites to install Jenkins
+  - Java Development Kit (JDK 1.7 or 1.8)
+  - 2GB RAM
+  - Set environment variable JAVA_HOME to point to JDK base directory
+    - ex: `C:\Program Files\Java\jdk1.8.0_162`
+
+### Jenkins root folder
+
+Jenkins stores all its configuration data, jobs and project workspace in a Root/Parent folder
+
+- `C:\Program Files (x86)\Jenkins or`
+- `C:\User_Home_Dir\.Jenkins`
 
 [back](#toc)
